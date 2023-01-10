@@ -1,0 +1,44 @@
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+}
+%\usepackage{mathtext}  % conflicts by some reason with unicode-math
+\usepackage{enumerate, float, indentfirst}
+\usepackage{appendixnumberbeamer} % не считать номера страниц после команды \appendix
+\usepackage{array, booktabs} % для таблиц
+\usepackage{pgfpages}
+\usepackage{esint} % various fancy integral symbols
+
+\graphicspath{{images/}{presentation/images/}} % папки с графикой
+
+\DeclareRobustCommand{\todo}{\textcolor{red}}       % решаем проблему превращения названия цвета в результате \MakeUppercase, http://tex.stackexchange.com/a/187930, \DeclareRobustCommand protects \todo from expanding inside \MakeUppercase
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral#1@}
+\makeatother
+
+\def\slantfrac#1#2{ \hspace{3pt}\!^{#1}\!\!\hspace{1pt}/
+\hspace{2pt}\!\!_{#2}\!\hspace{3pt}
+} %Макрос для красивых дробей в строчку (например, 1/2)
+
+
+\newcommand{\itemi}{\item[\checkmark]}
+
+
+%%% Listings
+\usepackage{fancyvrb}
+\usepackage{minted}
+
+
+\usepackage[%
+backend=biber,% движок
+bibencoding=utf8,% кодировка bib файла
+sorting=none,% настройка сортировки списка литературы
+style=authortitle,% стиль цитирования и библиографии (по ГОСТ)
+language=autobib,% получение языка из babel/polyglossia, default: autobib % если ставить autocite или auto, то цитаты в тексте с указанием страницы, получат указание страницы на языке оригинала
+autolang=other,% многоязычная библиография
+clearlang=true,% внутренний сброс поля language, если он совпадает с языком из babel/polyglossia
+defernumbers=true,% нумерация проставляется после двух компиляций, зато позволяет выцеплять библиографию по ключевым словам и нумеровать не из большего списка
+sortcites=true,% сортировать номера затекстовых ссылок при цитировании (если в квадратных скобках несколько ссылок, то отображаться будут отсортированно, а не абы как)
+doi=false,% Показывать или нет ссылки на DOI
+isbn=false,% Показывать или нет ISBN, ISSN, ISRN
+]{biblatex}[2016/09/17]

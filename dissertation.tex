@@ -1,0 +1,60 @@
+% !TEX encoding   = UTF8
+% !TEX spellcheck = en_US
+
+%&preformat-disser
+\RequirePackage[l2tabu, orthodox]{nag} % Раскомментировав, можно в логе получать рекомендации относительно правильного использования пакетов и предупреждения об устаревших и нерекомендуемых пакетах
+% Формат А4, 14pt (ГОСТ Р 7.0.11-2011, 5.3.6)
+\documentclass[a4paper, 14pt, oneside, openany]{memoir}
+
+\input{common/setup}                % Общие настройки шаблона
+\input{common/packages}             % Пакеты общие для диссертации и автореферата
+
+\input{dissertation/dispackages}    % Пакеты для диссертации
+\input{dissertation/userpackages}   % Пакеты для специфических пользовательских задач
+\input{dissertation/setup}          % Упрощённые настройки шаблона
+
+\input{common/newnames}             % Новые переменные для всего проекта
+\input{common/data}                 % Основные сведения
+\input{common/fonts}                % Определение шрифтов
+\input{common/styles}               % Стили общие для диссертации и автореферата
+\input{dissertation/disstyles}      % Стили для диссертации
+\input{dissertation/userstyles}     % Стили для специфических пользовательских задач
+
+%%% Библиография. Выбор движка для реализации %%%
+\input{biblio/biblatex}             % Реализация пакетом biblatex через движок biber
+
+
+%%% Управление компиляцией отдельных частей диссертации %%%
+% Необходимо сначала иметь полностью скомпилированный документ, чтобы все
+% промежуточные файлы были в наличии
+% Затем, для вывода отдельных частей можно воспользоваться командой \includeonly
+% Ниже примеры использования команды:
+%
+%\includeonly{dissertation/part2}
+%\includeonly{dissertation/contents,Dissertation/appendix,Dissertation/conclusion}
+%
+% Если все команды закомментированы, то документ будет выведен в PDF файл полностью
+
+
+\begin{document}
+
+%% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
+\include{dissertation/title}           % Титульный лист
+\include{dissertation/contents}        % Оглавление
+\include{dissertation/introduction}    % Введение
+\include{dissertation/methodology}     % Методология
+\include{dissertation/results}         % Результаты
+\include{dissertation/conclusion}      % Заключение
+%\include{dissertation/acronyms}        % Список сокращений и условных обозначений
+\include{dissertation/references}      % Список литературы
+
+%%% Настройки для приложений
+\appendix
+% Оформление заголовков приложений ближе к ГОСТ:
+\setlength{\midchapskip}{20pt}
+\renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}
+\renewcommand\thechapter{\Asbuk{chapter}} % Чтобы приложения русскими буквами нумеровались
+
+\include{dissertation/appendix}        % Приложения
+
+\end{document}

@@ -1,0 +1,28 @@
+% !TEX encoding   = UTF8
+% !TEX spellcheck = en_US
+
+%%% Tables
+\usepackage{tabu, tabulary}  % таблицы с автоматически подбирающейся шириной столбцов
+\usepackage{fr-longtable}    % ради \endlasthead
+
+
+%%% Listings
+\usepackage{fancyvrb}
+\usepackage[cache=false]{minted}
+
+
+%%% Embedded languages
+\usepackage[usefamily={py,sympy},rerun=always]{pythontex}
+
+
+%%% Paragraph layout
+\usepackage{epigraph}
+
+
+%%% Русская традиция начертания греческих букв
+\usepackage{upgreek}         % прямые греческие ради русской традиции
+
+%%% Microtypography
+%\ifnumequal{\value{draft}}{0}{% Только если у нас режим чистовика
+%    \usepackage[final, babel, shrink=45]{microtype}[2016/05/14] % улучшает представление букв и слов в строках, может помочь при наличии отдельно висящих слов
+%}{}

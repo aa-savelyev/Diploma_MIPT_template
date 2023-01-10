@@ -1,0 +1,22 @@
+% !TEX encoding   = UTF8
+% !TEX spellcheck = en_US
+
+
+%% Draft mode
+\makeatletter
+\@ifundefined{c@draft}{
+  \newcounter{draft}
+  \setcounter{draft}{0}  % 0 --- чистовик (максимальное соблюдение ГОСТ)
+                         % 1 --- черновик (отклонения от ГОСТ, но быстрая сборка итоговых PDF)
+}{}
+\makeatother
+
+
+%%% Precompile tikz pictures to accelerate build
+\makeatletter
+\@ifundefined{c@imgprecompile}{
+  \newcounter{imgprecompile}
+  \setcounter{imgprecompile}{0}   % 0 --- без предкомпиляции;
+                                  % 1 --- пользоваться предварительно скомпилированными pdf вместо генерации заново из tikz
+}{}
+\makeatother

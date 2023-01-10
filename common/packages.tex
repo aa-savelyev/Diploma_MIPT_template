@@ -1,0 +1,188 @@
+% !TEX encoding   = UTF8
+% !TEX spellcheck = en_US
+
+\RequirePackage{etoolbox}[2015/08/02]  % Advanced checking of different conditions
+\providebool{presentation}
+
+
+%%% Page layout
+\usepackage{pdflscape}
+\usepackage{geometry}
+
+
+%%% Mathematics
+\usepackage{amsthm,amsfonts,amsmath,amscd}
+\usepackage{mathtools}             % Add environment 'multlined'
+\usepackage{dsfont}
+%\usepackage{mathspec}              % Do not work with LuaLaTeX
+\usepackage{unicode-math}
+
+
+%%% Encodings and fonts
+%% Settings for 14 pt font size %%
+%% Формирование переменных и констант для сравнения (один раз для всех подключаемых файлов)
+%% должно располагаться до вызова пакета fontspec или polyglossia, потому что они сбивают его работу
+\newlength{\curtextsize}
+\newlength{\bigtextsize}
+\setlength{\bigtextsize}{13.9pt}
+
+\makeatletter
+%\show\f@size                      % неплохо для отслеживания, но вызывает стопорение процесса, если документ компилируется без команды  -interaction=nonstopmode
+\setlength{\curtextsize}{\f@size pt}
+\makeatother
+
+\usepackage{polyglossia}           % Automatically load 'fontspec'
+
+
+%%% Paragraph layout
+\usepackage{indentfirst}
+
+
+%%% Colors
+\ifpresentation
+\else
+  \usepackage[svgnames,table,hyperref]{xcolor} %,cmyk
+\fi
+
+
+%%% Tables
+\usepackage{longtable, ltcaption}
+\usepackage{multirow, makecell}    % Advanced formatting
+
+
+%%% General layout
+\usepackage{soulutf8}              % Underlying with hyphenation
+\usepackage{icomma}
+
+
+%%% Оптимизация расстановки переносов и длины последней строки абзаца
+\IfFileExists{impnattypo.sty}{% проверка установленности пакета impnattypo
+  \ifluatex
+    \ifnumequal{\value{draft}}{1}{% Черновик
+      \usepackage[hyphenation, lastparline, nosingleletter, homeoarchy, rivers, draft]{impnattypo}
+    }{% Чистовик
+      \usepackage[hyphenation, lastparline, nosingleletter]{impnattypo}
+    }
+  \else
+    \usepackage[hyphenation, lastparline]{impnattypo}
+  \fi
+}{}
+
+
+%%% Hyper references
+\let\CYRDZE\relax
+\usepackage{hyperref}[2012/11/06]
+
+
+%%% Figures
+\usepackage{graphicx}[2014/04/25]
+%\usepackage{subcaption}
+
+%%% Counters
+\usepackage[figure,table]{totalcount}  % Счётчик рисунков и таблиц
+\usepackage{totcount}                  % Пакет создания счётчиков на основе последнего номера подсчитываемого элемента (может требовать дважды компилировать документ)
+\usepackage{totpages}                  % Счётчик страниц, совместимый с hyperref (ссылается на номер последней страницы). Желательно ставить последним пакетом в преамбуле
+
+
+%%% Smart references
+\ifpresentation
+\else
+  \usepackage[russian]{cleveref}
+
+  \creflabelformat{equation}{#2#1#3}     % Формат по умолчанию ставил круглые скобки вокруг каждого номера ссылки, теперь просто номера ссылок без какого-либо дополнительного оформления
+  \crefrangelabelformat{equation}{#3#1#4\cyrdash#5#2#6}  % Интервалы в русском языке принято делать через тире, если иное не оговорено
+
+  % решение проблемы с "и" в \labelcref
+  % https://tex.stackexchange.com/a/455124/104425
+  \DeclareTextSymbol{\cyri}\UnicodeEncodingName{"0438} % и
+
+  % Добавление возможности использования пробелов в \labelcref
+  % https://tex.stackexchange.com/a/340502/104425
+  \usepackage{kvsetkeys}
+  \makeatletter
+  \let\org@@cref\@cref
+  \renewcommand*{\@cref}[2]{%
+    \edef\process@me{%
+      \noexpand\org@@cref{#1}{\zap@space#2 \@empty}%
+    }\process@me
+  }
+  \makeatother
+\fi
+
+\ifnumequal{\value{draft}}{1}{% Черновик
+  \usepackage[firstpage]{draftwatermark}
+  \SetWatermarkText{DRAFT}
+  \SetWatermarkFontSize{14pt}
+  \SetWatermarkScale{15}
+  \SetWatermarkAngle{45}
+}{}
+
+
+%%% Исправление положения якорей подписей (под)рисунков
+% Без hypcap и патча, при клике по ссылке на подрисунок, просмотрщик pdf прыгает "к подписи" а не "к рисунку".
+% Подробнее: https://github.com/AndreyAkinshin/Russian-Phd-LaTeX-Dissertation-Template/issues/238
+% (!) Даже с патчем, если мешать в одной фиге разные типы подфиг (subbottom и subcaption) - ссылки всё равно будут работать неправильно  (см. https://www.overleaf.com/read/czmbmmtnqrrg ).
+\ifpresentation
+\else
+  \usepackage[all]{hypcap}
+
+  \makeatletter
+  \ltx@ifclasslater{memoir}{2018/12/13}{
+    % Предполагается, что в следующей версии класс будет исправлен
+    \typeout{Assuming this version of memoir is free from the jumping-to-caption bug.}
+  }{
+    \RequirePackage{xpatch}
+
+    \newcommand\mem@step@subcounter{\refstepcounter{sub\@captype}\@contkeep}
+
+    \xpatchcmd{\@memsubbody}%
+    {\refstepcounter{sub\@captype}\@contkeep}% search pattern
+    {}% replacement
+    {\typeout{@memsubbody is patched}}%
+    {\typeout{@memsubbody is NOT patched}}%
+
+    \xpatchcmd{\@memcontsubbody}%
+    {\refstepcounter{sub\@captype}\@contkeep}% pattern
+    {}% replacement
+    {\typeout{@memcontsubbody is patched}}%
+    {\typeout{@memcontsubbody is NOT patched}}%
+
+    \xpatchcmd{\@memsubfloat}%
+    {\vbox\bgroup}% search pattern
+    {\vbox\bgroup\mem@step@subcounter}% replacement
+    {\typeout{@memsubfloat patch is ok}}%
+    {\typeout{@memsubfloat patch is NOT ok}}%
+
+    \xpatchcmd{\subcaption}%
+    {\refstepcounter{sub\@captype}}% search pattern
+    {\H@refstepcounter{sub\@captype}}% replacement
+    {\typeout{subcaption second patch is ok}}%
+    {\typeout{subcaption second patch is NOT ok}}%
+  }
+  \makeatother
+\fi
+
+
+%%% Vector graphics
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes,shapes.misc}
+\usetikzlibrary{graphs, graphdrawing}
+\usegdlibrary{trees, layered}
+
+% для уменьшения размера графики tikz
+\usepackage{adjustbox}
+
+% если текущий процесс запущен библиотекой tikz-external, то предкомпиляция должна быть включена
+\ifdefined\tikzexternalrealjob
+  \setcounter{imgprecompile}{1}
+\fi
+
+\ifnumequal{\value{imgprecompile}}{1}{% Только если у нас включена предкомпиляция
+  \usetikzlibrary{external}              % подключение возможности предкомпиляции
+  \tikzexternalize[prefix=images/cache/] % activate! % здесь можно указать отдельную папку для скомпилированных файлов
+  \ifxetex
+    \tikzset{external/up to date check={diff}}
+  \fi
+}{}

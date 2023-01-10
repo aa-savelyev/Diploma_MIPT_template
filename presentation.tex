@@ -1,0 +1,30 @@
+% !TEX encoding   = UTF8
+% !TEX spellcheck = ru_RU
+
+\newif\ifpresentation              % Условие, проверяющее, что документ --- презентация
+\presentationtrue
+\documentclass[9pt, xcolor={svgnames, table, hyperref}]{beamer}
+
+\input{common/setup}               % Общие настройки шаблона
+\input{common/packages}            % Пакеты общие для диссертации и автореферата
+\input{common/data}                % Основные сведения
+
+\input{presentation/fonts}         % Определение шрифтов
+\input{presentation/setup}         % Настройки презентации
+\input{presentation/prespackages}  % Пакеты презентации
+\input{presentation/styles}        % Стили презентации
+\input{presentation/title}         % Настройки заглавной страницы
+
+\addbibresource[label=bl-external]{biblio/external.bib}
+
+
+\begin{document}
+
+\input{presentation/preamble}      % Введение
+%\input{presentation/bibliography}  % Обзор литературы
+\input{presentation/content}       % Основная часть
+\input{presentation/conclusion}    % Заключение
+\appendix
+\input{presentation/appendix}      % Запасные слайды презентации
+
+\end{document}
