@@ -24,7 +24,7 @@
 %\ltx@iffilelater{biblatex-gost.def}{2017/05/03}%
 %{\toggletrue{bbx:gostbibliography}%
 %\renewcommand*{\revsdnamepunct}{\addcomma}}{}
-}{%Черновик
+}{% Черновик
 \usepackage[%
   backend=biber,% движок
   bibencoding=utf8,% кодировка bib файла
@@ -39,9 +39,9 @@
 \addbibresource[label=bl-external]{biblio/external.bib}
 \addbibresource[label=bl-author]{biblio/author.bib}
 
-%http://tex.stackexchange.com/a/141831/79756
-%There is a way to automatically map the language field to the langid field. The following lines in the preamble should be enough to do that.
-%This command will copy the language field into the langid field and will then delete the contents of the language field. The language field will only be deleted if it was successfully copied into the langid field.
+% http://tex.stackexchange.com/a/141831/79756
+% There is a way to automatically map the language field to the langid field. The following lines in the preamble should be enough to do that.
+% This command will copy the language field into the langid field and will then delete the contents of the language field. The language field will only be deleted if it was successfully copied into the langid field.
 \DeclareSourcemap{ %модификация bib файла перед тем, как им займётся biblatex
     \maps{
         \map{% перекидываем значения полей language в поля langid, которыми пользуется biblatex

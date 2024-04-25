@@ -3,10 +3,10 @@
 
 
 %%% Common data %%%
-\newcommand{\thesisAuthorLastName}{Фамилия}
-\newcommand{\thesisAuthorOtherNames}{Имя Отчество}
-\newcommand{\thesisAuthorInitials}{И.\,О.}
-\newcommand{\thesisAuthor}             % Диссертация, ФИО автора
+\newcommand{\thesisAuthorLastName}{\todo{Фамилия}}
+\newcommand{\thesisAuthorOtherNames}{\todo{Имя Отчество}}
+\newcommand{\thesisAuthorInitials}{\todo{И.\,О.}}
+\newcommand{\thesisAuthor}              % Диссертация, ФИО автора
 {%
   \texorpdfstring{% \texorpdfstring takes two arguments and uses the first for (La)TeX and the second for pdf
     \thesisAuthorLastName~\thesisAuthorOtherNames% так будет отображаться на титульном листе или в тексте, где будет использоваться переменная
@@ -14,39 +14,39 @@
     \thesisAuthorLastName, \thesisAuthorOtherNames% эта запись для свойств pdf-файла. В таком виде, если pdf будет обработан программами для сбора библиографических сведений, будет правильно представлена фамилия.
   }
 }
-\newcommand{\thesisAuthorShort}        % Диссертация, ФИО автора инициалами
+\newcommand{\thesisAuthorShort}         % Диссертация, ФИО автора инициалами
 {\thesisAuthorInitials~\thesisAuthorLastName}
-\newcommand{\thesisTitle}              % Диссертация, название
-{Название ВКР}
-\newcommand{\thesisCity}               % Диссертация, город написания диссертации
+\newcommand{\thesisTitle}               % Диссертация, название
+{\todo{Название ВКР}}
+\newcommand{\thesisCity}                % Диссертация, город написания диссертации
 {Жуковский}
-\newcommand{\thesisYear}               % Диссертация, год написания диссертации
+\newcommand{\thesisYear}                % Диссертация, год написания диссертации
 {2024}
-\newcommand{\thesisOrganization}       % Диссертация, организация
+\newcommand{\thesisOrganization}        % Диссертация, организация
 {Московский физико-технический институт (национальный исследовательский университет)}
-\newcommand{\thesisOrganizationShort}  % Диссертация, краткое название организации для доклада
+\newcommand{\thesisOrganizationShort}   % Диссертация, краткое название организации для доклада
 {МФТИ}
-\newcommand{\thesisInOrganization}     % Диссертация, организация в предложном падеже: Работа выполнена в ...
+\newcommand{\thesisInOrganization}      % Диссертация, организация в предложном падеже: Работа выполнена в ...
 {\todo{учреждении с~длинным длинным длинным длинным названием, в~котором
     выполнялась данная диссертационная работа}}
 
-\newcommand{\thesisDepartment}  % Диссертация, краткое название организации для доклада
+\newcommand{\thesisDepartment}          % Диссертация, название факультета
 {Физтех-школа аэрокосмических технологий}
-\newcommand{\thesisDepartmentShort}  % Диссертация, краткое название организации для доклада
+\newcommand{\thesisDepartmentShort}     % Диссертация, краткое название факультета
 {ФАКТ}
-\newcommand{\thesisChair}  % Диссертация, краткое название организации для доклада
+\newcommand{\thesisChair}               % Диссертация, название кафедры
 {Кафедра компьютерного моделирования}
 
-% \newcommand{\supervisorDead}{}           % Рисовать рамку вокруг фамилии
-\newcommand{\supervisorFio}              % Научный руководитель, ФИО
-{Фамилия Имя Отчество}
-\newcommand{\supervisorRegalia}          % Научный руководитель, регалии
-{кандидит технических наук}
-\newcommand{\supervisorFioShort}         % Научный руководитель, ФИО
-{Фамилия\:И.\,О.}
-\newcommand{\supervisorRegaliaShort}     % Научный руководитель, регалии
-{к.\,т.\,н.}
+%\newcommand{\supervisorDead}{}          % Рисовать рамку вокруг фамилии
+\newcommand{\supervisorFio}             % Научный руководитель, ФИО
+{\todo{Фамилия Имя Отчество}}
+\newcommand{\supervisorRegalia}         % Научный руководитель, регалии
+{\todo{кандидит технических наук}}
+\newcommand{\supervisorFioShort}        % Научный руководитель, ФИО
+{\todo{Фамилия\:И.\,О.}}
+\newcommand{\supervisorRegaliaShort}    % Научный руководитель, регалии
+{\todo{к.\,т.\,н.}}
 
 % To avoid conflict with beamer class use \providecommand
-\providecommand{\keywords}%              % Ключевые слова для метаданных PDF диссертации и автореферата
+\providecommand{\keywords}%             % Ключевые слова для метаданных PDF диссертации и автореферата
 {Ключевые слова, другие ключевые слов}
