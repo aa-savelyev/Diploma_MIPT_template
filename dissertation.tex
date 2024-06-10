@@ -23,10 +23,6 @@
 % Вывести информацию о выбранных опциях в лог сборки
 \typeout{Selected options:}
 \typeout{Draft mode: \arabic{draft}}
-\typeout{Font: \arabic{fontfamily}}
-\typeout{AltFont: \arabic{usealtfont}}
-\typeout{Bibliography backend: \arabic{bibliosel}}
-\typeout{Precompile images: \arabic{imgprecompile}}
 % Вывести информацию о версиях используемых библиотек в лог сборки
 \listfiles
 
@@ -51,8 +47,11 @@
 \include{Dissertation/title}            % Титульный лист
 \include{Dissertation/contents}         % Оглавление
 \include{Dissertation/introduction}     % Введение
-\include{Dissertation/methodology}      % Методология
-\include{Dissertation/results}          % Результаты
+%\include{Dissertation/methodology}      % Методология
+%\include{Dissertation/results}          % Результаты
+\include{Dissertation/part1}            % Глава 1
+\include{Dissertation/part2}            % Глава 2
+\include{Dissertation/part3}            % Глава 3
 \include{Dissertation/conclusion}       % Заключение
 \include{Dissertation/acronyms}         % Список сокращений и условных обозначений
 \include{Dissertation/references}       % Список литературы
@@ -63,6 +62,6 @@
 \renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}
 \renewcommand\thechapter{\Asbuk{chapter}} % Чтобы приложения русскими буквами нумеровались
 
-\include{Dissertation/appendix}        % Приложения
+%\include{Dissertation/appendix}        % Приложения
 
 \end{document}
