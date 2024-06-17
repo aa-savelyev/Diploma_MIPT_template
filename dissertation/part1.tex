@@ -30,6 +30,12 @@
 
 \section{Формулы}\label{sec:ch1/sec3}
 
+Для добавления формул можно использовать пары
+\verb+$+\dots\verb+$+ и \verb+$$+\dots\verb+$$+,
+но~они считаются устаревшими.
+Лучше использовать их функциональные аналоги
+\verb+\(+\dots\verb+\)+ и \verb+\[+\dots\verb+\]+.
+
 Благодаря пакету \textit{icomma}, \LaTeX~одинаково хорошо воспринимает
 в~качестве десятичного разделителя и запятую (\(3,1415\)), и точку (\(3.1415\)).
 
@@ -56,24 +62,47 @@
             \displaystyle\frac{1}{\sqrt{2}+\cdots}}}
 \]
 
-В формулах можно использовать греческие буквы:
+В формулах можно использовать греческие буквы.
 %Все \original... команды заранее, ради этого примера, определены в Dissertation\userstyles.tex
 \[
-    \alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta\theta%
-    \vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho\varrho%
-    \sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma\Delta%
-    \Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega
+  \alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta\theta%
+  \vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho\varrho%
+  \sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega
+  \Gamma\Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega
 \]
 \[%https://texfaq.org/FAQ-boldgreek
-    \boldsymbol{\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta%
-        \theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho%
-        \varrho\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega\Gamma%
-        \Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega}
+  \symbf{\alpha\beta\gamma\delta\originalepsilon\epsilon\zeta\eta%
+    \theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho%
+    \varrho\sigma\varsigma\tau\upsilon\originalphi\phi\chi\psi\omega
+    \Gamma\Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega}
 \]
 
-Для добавления формул можно использовать пары \verb+$+\dots\verb+$+ и \verb+$$+\dots\verb+$$+,
-но~они считаются устаревшими.
-Лучше использовать их функциональные аналоги \verb+\(+\dots\verb+\)+ и \verb+\[+\dots\verb+\]+.
+Для жирного начертания символов в формуле используется команда \verb|\symbf|, для курсива --- \verb|\symit|
+
+\subsection{Прямое и наклонное начертание символов}
+
+За прямое и наклонное начертание в пакете \verb|unicode-math| отвечает опция \verb|math-style|.
+Значение \verb|math-style=french| даёт следующий результат для латинский и греческих букв:
+\begin{enumerate}
+  \item Латинские буквы
+  \begin{itemize}
+    \item курсив для строчных букв: \(xyz\), прямое начертание для заглавных: \(XYZ\);
+    \item жирное шрифт даёт прямое начертание как строчных, так и заглавных букв: \(\symbf{xyz}\), \(\symbf{XYZ}\);
+  \end{itemize}
+  \item Греческие буквы
+  \begin{itemize}
+    \item прямое начертание обычным шрифтом: \(\phi\psi\omega\), \(\Phi\Psi\Omega\);
+    \item прямое начертание жирным шрифтом: \(\symbf{\phi\psi\omega}\), \(\symbf{\Phi\Psi\Omega}\)).
+  \end{itemize}
+\end{enumerate}
+
+Для непосредственного управления шрифтом в формулах можно использовать команды \verb|\sym*|:
+\begin{itemize}
+  \item \verb|\symup| --- прямое начертание: \(\symup{xyz}\), \(\symup{\phi\psi\omega}\);
+  \item \verb|\symbfup| --- жирное прямое начертание: \(\symbfup{xyz}\), \(\symbfup{\phi\psi\omega}\);
+  \item \verb|\symit| --- курсив: \(\symit{xyz}\), \(\symit{\phi\psi\omega}\);
+  \item \verb|\symbfit| --- жирный курсив: \(\symbfit{xyz}\), \(\symbfup{\phi\psi\omega}\).
+\end{itemize}
 
 \subsection{Ненумерованные многострочные формулы}\label{subsec:ch1/sec3/sub2}
 

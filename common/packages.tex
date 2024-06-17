@@ -27,6 +27,13 @@
     ]{siunitx}[=v2]                 % Размерности SI
 \sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
 
+% Подключаем unicode-math, чтобы использовать команду \setmathfont{}
+\usepackage[
+  math-style=french,  % Настройка прямого и наклонного начертаний латинских и греческих букв
+%  bold-style=upright,
+%  sans-style=literal,
+]{unicode-math}
+
 % Кириллица в нумерации subequations
 % Для правильной работы требуется выполнение сразу после загрузки пакетов
 \patchcmd{\subequations}{\def\theequation{\theparentequation\alph{equation}}}
