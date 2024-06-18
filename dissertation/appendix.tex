@@ -1,4 +1,18 @@
-\chapter{Примеры вставки листингов программного кода}\label{app:A}
+%%% Настройки для приложений
+\appendix
+% Оформление заголовков приложений ближе к ГОСТ:
+% Добваить слово 'Приложение' независимо от значения параметра chapstyle
+\renewcommand*{\printchaptername}{\chapnamefont \appendixname}
+% Название приложения с новой строки с отступом \midchapskip
+\setlength{\midchapskip}{6pt}
+\renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}
+% Нумеровка приложений русскими буквами
+\renewcommand\thechapter{\Asbuk{chapter}}
+% Не выносим подразделы приложений в оглавление
+\settocdepth{chapter}
+
+
+\chapter{Вставка листингов программного кода}\label{app:A}
 
 Для крупных листингов есть два способа. Первый красивый, но в нём могут быть
 проблемы с поддержкой кириллицы (у вас может встречаться в~комментариях
@@ -116,7 +130,7 @@ cacheSolve <- function(x, ...) {
 \lstinputlisting[lastline=78,language={R},caption={Листинг из внешнего файла},label={lst:external1}]{listings/run_analysis.R}
 \endgroup
 
-\chapter{Очень длинное название второго приложения, в~котором продемонстрирована работа с~длинными таблицами}\label{app:B}
+\chapter{Работа с~длинными таблицами}\label{app:B}
 
 \section{Подраздел приложения}\label{app:B1}
 Вот размещается длинная таблица:
