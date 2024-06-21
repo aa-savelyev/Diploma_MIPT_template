@@ -209,6 +209,18 @@
 %  {\endlist}
 %  {\item}
 
+%%% Макросы автоматического подсчёта количества авторских публикаций.
+% Печатают невидимую (пустую) библиографию, считая количество источников.
+% http://tex.stackexchange.com/a/66851/79756
+%
+\makeatletter
+  \newtotcounter{citenum}
+  \defbibenvironment{counter}
+    {\setcounter{citenum}{0}\renewcommand{\blx@driver}[1]{}} % begin code: убирает весь выводимый текст
+    {} % end code
+    {\stepcounter{citenum}} % item code: cчитает "печатаемые в библиографию" источники
+\makeatother
+
 \defbibheading{nobibheading}{} % пустой заголовок, для подсчёта публикаций с помощью невидимой библиографии
 %\defbibheading{pubgroup}{\section*{#1}} % обычный стиль, заголовок-секция
 %\defbibheading{pubsubgroup}{\noindent\textbf{#1}} % для подразделов "по типу источника"
@@ -217,4 +229,7 @@
 %%% Создание команд для вывода списка литературы %%%
 \newcommand*{\insertbibliofull}{
   \printbibliography[section=0,title=\bibtitlefull]
+  \ifnumequal{\value{draft}}{0}{
+    \printbibliography[heading=nobibheading,env=counter,section=0]
+  }{}
 }
