@@ -258,9 +258,9 @@
 \let\originalphi\phi
 \let\originalkappa\kappa
 \let\originalle\le
-\let\originalleq\leq
 \let\originalge\ge
-\let\originalgeq\geq
+%\let\originalleq\leq    % пустой символ
+%\let\originalgeq\geq    % пустой символ
 \let\originalemptyset\emptyset
 \let\originaltan\tan
 \let\originalcot\cot
@@ -268,10 +268,10 @@
 
 %%% Русская традиция начертания математических знаков
 \renewcommand{\le}{\ensuremath{\leqslant}}
-\renewcommand{\leq}{\ensuremath{\leqslant}}
 \renewcommand{\ge}{\ensuremath{\geqslant}}
-\renewcommand{\geq}{\ensuremath{\geqslant}}
-\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\leq}{\ensuremath{\leqslant}}   % не работает, переопределяется заново пакетом unicode-math
+\renewcommand{\geq}{\ensuremath{\geqslant}}   % не работает, переопределяется заново пакетом unicode-math
+\renewcommand{\emptyset}{\varnothing}         % одинаковые символы
 
 %%% Русская традиция начертания математических функций (на случай копирования из зарубежных источников)
 \renewcommand{\tan}{\operatorname{tg}}

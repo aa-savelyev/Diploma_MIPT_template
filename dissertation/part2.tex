@@ -139,29 +139,30 @@
 \subsection{Математические знаки и символы}
 
 Русская традиция начертания греческих букв и некоторых математических
-функций отличается от~западной. Это исправляется серией
-\verb|\renewcommand|.
+функций отличается от~западной. Это исправляется серией \verb|\renewcommand| и использованием команд \verb|\var*| (например, \verb|\varepsilon|).
 \begin{itemize}
-    %Все \original... команды заранее, ради этого примера, определены в Dissertation\userstyles.tex
-    \item[До:] \( \originalepsilon \originalge \originalphi\),
-          \(\originalphi \originalleq \originalepsilon\),
-          \(\originalkappa \in \originalemptyset\),
-          \(\originaltan\),
-          \(\originalcot\),
-          \(\originalcsc\).
-    \item[После:] \( \epsilon \ge \phi\),
-          \(\phi \leq \epsilon\),
-          \(\kappa \in \emptyset\),
-          \(\tan\),
-          \(\cot\),
-          \(\csc\).
+    % Все \original... команды заранее, ради этого примера, определены в Dissertation\userstyles.tex
+    \item[До:]
+        \( \epsilon \originalge \phi \),
+        \( \rho \originalle \sigma \),
+        \( \kappa \in \originalemptyset \),
+        \( \originaltan \),
+        \( \originalcot \),
+        \( \originalcsc \).
+    \item[После:]
+        \( \varepsilon \ge \varphi \),
+        \( \varrho \le \varsigma \),
+        \( \varkappa \in \emptyset \),
+        \( \tan \),
+        \( \cot \),
+        \( \csc \).
 \end{itemize}
 
-Кроме того, принято набирать греческие буквы вертикальными, что
-решается подключением пакета \verb|upgreek| (см. закомментированный
-блок в~\verb|userpackages.tex|) и~аналогичным переопределением в
-преамбуле (см.~закомментированный блок в~\verb|userstyles.tex|). В
-этом шаблоне такие переопределения уже включены.
+%Кроме того, принято набирать греческие буквы вертикальными, что
+%решается подключением пакета \verb|upgreek| (см. закомментированный
+%блок в~\verb|userpackages.tex|) и~аналогичным переопределением в
+%преамбуле (см.~закомментированный блок в~\verb|userstyles.tex|). В
+%этом шаблоне такие переопределения уже включены.
 
 Знаки математических операций принято переносить. Пример переноса
 в~формуле~\eqref{eq:equation3}.
