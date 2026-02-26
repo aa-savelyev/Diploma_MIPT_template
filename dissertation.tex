@@ -4,17 +4,17 @@
 \documentclass[a4paper,14pt,oneside,openany]{memoir}
 
 \input{common/setup}                % Общие настройки шаблона
-\input{common/packages}             % Пакеты общие для диссертации и автореферата
+\input{common/packages}             % Общие пакеты шаблона
 
 \input{Dissertation/dispackages}    % Пакеты для диссертации
 \input{Dissertation/userpackages}   % Пакеты для специфических пользовательских задач
-\input{Dissertation/setup}          % Упрощённые настройки шаблона
+\input{Dissertation/setup}          % Упрощённые настройки шаблона диссертации
 
 \input{common/newnames}             % Новые переменные для всего проекта
 \input{common/data}                 % Основные сведения
 \input{common/characteristic}       % Цель, задачи, апробация
 \input{common/fonts}                % Определение шрифтов
-\input{common/styles}               % Стили общие для диссертации и автореферата
+\input{common/styles}               % Общие стили
 \input{Dissertation/disstyles}      % Стили для диссертации
 \input{Dissertation/userstyles}     % Стили для специфических пользовательских задач
 
@@ -28,8 +28,7 @@
 \listfiles
 
 %%% Управление компиляцией отдельных частей диссертации %%%
-% Необходимо сначала иметь полностью скомпилированный документ, чтобы все
-% промежуточные файлы были в наличии
+% Необходимо сначала иметь полностью скомпилированный документ, чтобы все промежуточные файлы были в наличии
 % Затем, для вывода отдельных частей можно воспользоваться командой \includeonly
 % Ниже примеры использования команды:
 %
@@ -48,7 +47,7 @@
 
   %%% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
   \include{Dissertation/title}            % Титульный лист
-  % TODO добавить аннотацию (См. Положение о ВКР МФТИ)
+% TODO добавить аннотацию (См. Положение о ВКР МФТИ)
   \include{Dissertation/contents}         % Содержание
   \include{Dissertation/acronyms}         % Обозначения и сокращения
   \input{Dissertation/introduction}       % Введение
