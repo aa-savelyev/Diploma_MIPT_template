@@ -1,31 +1,38 @@
 %&preformat-present
 
-\newif\ifpresentation % Условие, проверяющее, что документ --- презентация
-\presentationtrue
-\documentclass[10pt,xcolor={table,svgnames},aspectratio=169]{beamer}
+% Выбор режима сборки: 1 -- обычный, 2 -- черновик, 3 -- распечатка
+\def\beamerMode{1}
 
-\input{common/setup}               % Общие настройки шаблона
-\input{common/packages}            % Пакеты общие для диссертации и автореферата
+\ifnum\beamerMode=1
+  \documentclass[9pt,xcolor={table,svgnames},aspectratio=169]{beamer}
+\else
+  \ifnum\beamerMode=2
+    \documentclass[draft,9pt,xcolor={table,svgnames},aspectratio=169]{beamer}
+  \else
+    \documentclass[handout,9pt,xcolor={table,svgnames},aspectratio=169]{beamer}
+  \fi
+\fi
+
 \input{common/data}                % Основные сведения
 \input{common/characteristic}      % Цель, задачи, апробация
 
-\input{Presentation/fonts}         % Определение шрифтов
 \input{Presentation/setup}         % Настройки презентации
-\input{Presentation/prespackages}  % Библиотеки презентации
+\input{Presentation/packages}      % Библиотеки презентации
 \input{Presentation/styles}        % Стили презентации
-\input{Presentation/title}         % Настройки заглавной странице
-
-%%% Библиография %%%
-\input{biblio/biblatex}            % Реализация пакетом biblatex через движок biber
-
+\input{Presentation/definitions}   % Определения
+\input{Presentation/title}         % Титульный слайд
 
 % Вывести информацию о версиях используемых библиотек в лог сборки
 \listfiles
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\includeonly{Presentation/content}
+
 \begin{document}
-\input{Presentation/preamble}      % Первые слайды презентации
-\input{Presentation/content}       % Настройки заглавной странице
-\input{Presentation/conclusion}    % Последние слайды презентации
-\appendix
-\input{Presentation/appendix}      % Запасные слайды презентации
+  \input{Presentation/preamble}      % Первые слайды презентации
+  \input{Presentation/content}       % Содержание
+  \input{Presentation/conclusion}    % Последние слайды презентации
+  \appendix
+  \input{Presentation/appendix}      % Запасные слайды презентации
 \end{document}

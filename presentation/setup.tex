@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Файл упрощённых настроек презентации %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%% Добавление поясняющих записей (notes) к презентации %%%
 \makeatletter
 \@ifundefined{c@presnotes}{
@@ -8,7 +12,7 @@
 }{}
 \makeatother
 
-%%% Положение поясняющих записей (notes) при значении presnotes=2 %%%
+% Положение поясняющих записей (notes) при значении presnotes=2
 \newcommand{\presposition}{left}  % возможные значения: left, right, top, bottom
 
 %%% Добавление логотипа из файла images/logo на первом слайде %%%
@@ -17,5 +21,14 @@
     \newcounter{logotitle}
     \setcounter{logotitle}{1}       % 0 --- выкл;
                                     % 1 --- вкл
+}{}
+\makeatother
+
+%%% Пометки в тексте %%%
+\makeatletter
+\@ifundefined{c@showmarkup}{
+  \newcounter{showmarkup}
+  \setcounter{showmarkup}{0}        % 0 --- скрыть пометки
+                                    % 1 --- показывать пометки
 }{}
 \makeatother

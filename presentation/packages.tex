@@ -1,0 +1,14 @@
+%%% Пакеты для презентации %%%
+\usepackage{polyglossia}          % russian language
+\usepackage{unicode-math}         % для шрифта STIX Two Math
+
+\usepackage{appendixnumberbeamer} % не считать номера страниц после команды \appendix
+%\usepackage{textpos}              % for textblock*
+%\usepackage{gensymb}              % for \degree
+\usepackage{pifont}               % pix for \pro and \con
+\usepackage{pgfpages}             % для печати 2 слайдов на 1 странице в режиме handout
+\usepackage{array, booktabs}      % для таблиц
+%\usepackage{esint}                % various fancy integral symbols
+
+\DeclareRobustCommand{\fixme}{\textcolor{red}}  % решаем проблему превращения названия цвета в результате \MakeUppercase,
+% http://tex.stackexchange.com/a/187930, \DeclareRobustCommand protects \todo from expanding inside \MakeUppercase
