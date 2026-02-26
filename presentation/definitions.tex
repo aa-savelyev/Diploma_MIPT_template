@@ -1,21 +1,21 @@
 %%% Новые команды и окружения %%%
 
-%%% Emphasize todo %%%
+%%% Emphasize todo
 %\newcommand*{\todo}[1]{\textcolor{magenta}{\textbf{#1}}}
 
-%%% Добавляем другие варианты для \item %%%
+%%% Добавляем другие варианты для \item
 \newcommand{\itemi}{\item[\(\checkmark\)]}
 \newcommand{\pro}{\item[\textcolor{ForestGreen}{\normalsize\ding{52}}]}
 \newcommand{\con}{\item[\textcolor{FireBrick}{\normalsize\ding{56}}]}
 
-%%% Physical parameters %%%
+%%% Physical parameters
 \newcommand*{\Rey}{\mathrm{Re}}
 \newcommand*{\Mach}{\mathrm{M}}
 \newcommand*{\Tu}{\mathrm{Tu}}
 \newcommand*{\mut}{\mu_\mathrm{t}}
 \newcommand*{\DSO}{\Delta \sigma_\mathrm{o}}
 
-%%% Footnotes %%%
+%%% Сноски
 \newcounter{FootnoteCounter}
 \newcommand*{\ftnmark}{%
   \stepcounter{FootnoteCounter}%
@@ -25,29 +25,43 @@
   \footnotetext[\value{FootnoteCounter}]{#1}%
 }
 
-%%% Окружение stripe (полоса) %%%
-\newenvironment<>{stripe}[0]{%
-%  \setbeamercolor{block body}{bg=Orange!20}
-  \metroset{block=fill}
+
+%%% Блок без заголовка
+\newenvironment{block*}[1][structure!10!bg]{%
+  \setbeamercolor{block body}{bg=#1}
+  \begin{block}{\vspace*{-3ex}}
+  }{%
+  \end{block}
+}
+
+%%% Окружение stripe (полоса)
+\newenvironment<>{stripe}[1][structure!10!bg]{%
+  \setbeamercolor{block body}{bg=#1}
   \vspace*{-2ex}
   \begin{columns}
     \begin{column}{\paperwidth}
       \begin{block}{\vspace*{-3ex}}
-        \hspace*{1em}\begin{column}{0.94\paperwidth}#1
+        \hspace*{1em}
+        \begin{minipage}{0.94\paperwidth}
+        }{%
+        \end{minipage}
+      \end{block}
+    \end{column}
+  \end{columns}
 }
-{\end{column}\end{block}\end{column}\end{columns}}
 
-%%% Conclusion %%%
-%\newcommand{\conclusion}[2]{%
-%  \usebeamercolor[fg]{alerted text}%
-%  \begin{tikzpicture}
-%    \node [draw, thick, text width=#1] {\usebeamercolor[fg]{normal text}%\setstretch{1.0}%
-%      \bfes #2
-%    };
-%  \end{tikzpicture}
-%}
+%%% Вывод в рамке
+\newcommand{\conclusion}[2]{%
+  \begin{tikzpicture}
+    \node [draw, thick, text width=#1, color=alerted text.fg] {% цвет рамки
+      \usebeamercolor[fg]{normal text}%
+      \textbf{#2}
+    };
+  \end{tikzpicture}%
+}
 
-%%% Команды рецензирования %%%
+
+%%% Команды рецензирования
 \ifboolexpr{ (test {\ifnumequal{\value{showmarkup}}{1}}) }{
   \newrobustcmd{\todo}[1]{\textcolor{red}{#1}}
 }{
