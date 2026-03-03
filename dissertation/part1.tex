@@ -21,12 +21,13 @@
 Сошлёмся на библиографию.
 Одна ссылка: \cite[с.~54]{Sokolov}.
 Две ссылки: \cite{Sokolov, Gaidaenko}.
-Много ссылок: \cite{Gost.7.0.53, Razumovski, Lagkueva, Pokrovski, Methodology, Berestova, Kriger},
-\cite{Sirotko, Lukina, Encyclopedia, Nasirova}.
-И~ещё немного ссылок:~\cite{Article,Book,Booklet,Conference,Inbook,Incollection,Manual,Mastersthesis,Misc,Phdthesis,Proceedings,Techreport,Unpublished}.
+Много ссылок:
+\cite{Gost.7.0.53, Razumovski, Lagkueva, Pokrovski, Methodology, Berestova, Kriger}, \cite{Sirotko, Lukina, Encyclopedia, Nasirova}.
+И~ещё немного ссылок:
+\cite{Article,Book,Booklet,Conference,Inbook,Incollection,Manual,Mastersthesis,Misc,Phdthesis,Proceedings,Techreport,Unpublished}.
 
 
-Ссылки на собственные работы:~\cite{bib2, bib3, confbib1}.
+Ссылки на собственные работы:~\cite{bib2, bib3}.
 
 Ссылки на патент и свидетельство о регистрации программы:~\cite{patbib1, progbib1}.
 
@@ -189,11 +190,9 @@
     \end{alignedat}
 \end{equation}
 
-Ещё об отступах. Иногда для лучшей <<читаемости>> формул полезно
-немного исправить стандартные интервалы \LaTeX\ с учётом логической
-структуры самой формулы. Например в формуле~\cref{eq:2p3} добавлен
-небольшой отступ \verb+\,+ между основными сомножителями, ниже
-результат применения всех вариантов отступа:
+Ещё об отступах.
+Иногда для лучшей <<читаемости>> формул полезно немного исправить стандартные интервалы \LaTeX\ с учётом логической структуры самой формулы.
+Например в формуле~\cref{eq:2p3} добавлен небольшой отступ \verb+\,+ между основными сомножителями, ниже результат применения всех вариантов отступа:
 \begin{align*}
     \backslash!             & \quad f(x) = x^2\! +3x\! +2         \\
     \mbox{по-умолчанию}     & \quad f(x) = x^2+3x+2               \\
@@ -272,6 +271,7 @@
         y = 2 x^2 - x + 1 \label{eq:subeq_1-2}
     \end{gather}
 \end{subequations}
+
 Ссылки на отдельные уравнения~\cref{eq:subeq_1-1,eq:subeq_1-2,eq:subeq_2-1}.
 \begin{subequations}
     \label{eq:subeq_2}
@@ -339,8 +339,7 @@
 \end{commentbox}
 
 Окружение \verb+commentbox+ позволяет закомментировать участок кода в~режиме чистовика.
-Чтобы убрать кусок кода для всех режимов, можно использовать окружение
-\verb+comment+.
+Чтобы убрать кусок кода для всех режимов, можно использовать окружение \verb+comment+.
 
 \begin{comment}
     Этот текст всегда скрыт.
