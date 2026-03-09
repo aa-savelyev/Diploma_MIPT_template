@@ -61,6 +61,35 @@
   \item Задача 3
 }
 
+\begin{frame}{Большой многоуровневый список}
+  \begin{itemize}
+    \item \textbf{Пункт 1}
+    \begin{itemize}
+      \itemi Подпункт 1-1
+      \itemi Подпункт 1-2
+    \end{itemize}
+    \item \textbf{Пункт 2}
+    \begin{itemize}
+      \itemi Подпункт 2-1
+    \end{itemize}
+    \item \textbf{Пункт 3}
+    \begin{itemize}
+      \itemi Подпункт 3-1
+      \itemi Подпункт 3-2
+    \end{itemize}
+    \item \textbf{Пункт 4}
+    \begin{itemize}
+      \itemi Подпункт 4-1
+    \end{itemize}
+    \item \textbf{Пункт 5}
+    \begin{itemize}
+      \pro Подпункт 5-1
+      \pro Подпункт 5-2
+      \con Подпункт 5-3
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[allowframebreaks]{Разделение слайда}
   Поясняющий текст
   \begin{itemize}
@@ -131,13 +160,20 @@
   \end{minipage}
 \end{frame}
 
+\begin{frame}{Четыре изображения}
+  \centering
+  \includegraphics[width=0.25\linewidth,angle=35]{latex}
+  \includegraphics[width=0.25\linewidth,angle=135]{latex}\\
+  \includegraphics[width=0.25\linewidth,angle=15]{latex}
+  \includegraphics[width=0.25\linewidth,angle=-15]{latex}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Оформление}
+\section{Объекты}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Блоки}
-
   \metroset{block=transparent}
   \begin{block}{Прозрачный блок с заголовком}
     Текст внутри блока,\\
@@ -162,11 +198,9 @@
 
   \vspace{1ex}
   \conclusion{0.8\textwidth}{Выводы можно оформить в рамке}
-
 \end{frame}
 
 \begin{frame}{Полосы}
-
   \begin{stripe}
     Серая полоса (по умолчанию)\\
     Текст внутри полосы,\\
@@ -184,8 +218,6 @@
     Текст внутри полосы,\\
     который может занимать несколько строк
   \end{stripe}
-
-
 \end{frame}
 
 \begin{frame}{Сноски}
@@ -194,6 +226,16 @@
   
   Текст со второй сноской\ftnmark.
   \ftntext{Это текст второй сноски}
+\end{frame}
+
+\begin{frame}[t]{Произвольное позиционирование объектов}
+  \begin{textblock*}{100pt}(0.5\textwidth, 0.5\textheight)
+    Окружение \texttt{textblock*} позволяет поместить объект в~любое место слайда
+  \end{textblock*}
+  
+  \begin{textblock*}{0pt}(0.05\textwidth, 0.05\textheight)
+    \includegraphics[height=0.1\textheight]{logos/MIPT_logo.png}\\
+  \end{textblock*}
 \end{frame}
 
 
@@ -253,51 +295,41 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Уравнения Максвелла}
+\begin{frame}{Интегралы}
+  Английский стиль записи пределов интегрирования:
+  \[
+    \int_{0}^{5} f(t)\,dt,\quad
+    \int_{g(t)=a}^{g(t)=b} f(t)\,dt.
+  \]
+  
+  Русский стиль:
+  \[
+    \int\limits_{0}^{T} f(t)\,dt,\quad
+    \int\limits_{g(t)=a}^{g(t)=b} f(t)\,dt.
+  \]
+\end{frame}
+
+\begin{frame}{Уравнения Максвелла}
   \centering{
     \small
     \def\arraystretch{1.8}%
     \begin{tabular}{ll}
       \toprule
       Интегральная форма & Дифференциальная форма \\ \midrule
-      \(Q_e(t) = \displaystyle\oiint_S \vec D(t) \cdot d\vec{s} = \displaystyle\iiint_V \rho_v(t) dv\)
+      \(Q_e(t) = \displaystyle\oiint\limits_S \vec D(t) \cdot d\vec{s} = \displaystyle\iiint\limits_V \rho_v(t) dv\)
       & \(\nabla \cdot \vec D(t) = \rho_v(t)\) \\
-      \(\displaystyle\oiint_S \vec B(t) \cdot d\vec{s} = 0\)
+      \(\displaystyle\oiint\limits_S \vec B(t) \cdot d\vec{s} = 0\)
       & \(\nabla \cdot \vec B(t) = 0\) \\
-      \(V_{emf}(t) = \displaystyle\oint_L \vec E(t) \cdot d\vec{l}\) = \(- \displaystyle\iint_S \left[\frac{\partial\vec{B}(t)}{\partial t}\right] \cdot d\vec{s}\)
+      \(V_{emf}(t) = \displaystyle\oint\limits_L \vec E(t) \cdot d\vec{l}\) = \(- \displaystyle\iint\limits_S \left[\frac{\partial\vec{B}(t)}{\partial t}\right] \cdot d\vec{s}\)
       & \(\nabla \times \vec E(t) = - \frac{\partial\vec{B}(t)}{\partial t}\) \\
-      \(I(t) = \displaystyle\oint_L \vec H(t) \cdot d\vec{l} = \displaystyle\iint_S \left[\vec J(t) + \frac{\partial\vec{D}(t)}{\partial t}\right] \cdot d\vec{s}\)
+      \(I(t) = \displaystyle\oint\limits_L \vec H(t) \cdot d\vec{l} = \displaystyle\iint\limits_S \left[\vec J(t) + \frac{\partial\vec{D}(t)}{\partial t}\right] \cdot d\vec{s}\)
       & \(\nabla \times \vec H(t) = \vec J(t) + \frac{\partial\vec{D}(t)}{\partial t}\) \\
       \midrule
-      \(\displaystyle\oiint_S \vec J \cdot d\vec{s} = -\frac{\partial Q_e}{\partial t}\)
+      \(\displaystyle\oiint\limits_S \vec J \cdot d\vec{s} = -\frac{\partial Q_e}{\partial t}\)
       & \(\nabla \cdot \vec J = - \frac{\partial \rho_v}{\partial t}\) \\
       \bottomrule
       \multicolumn{2}{c}{\(\vec D(t) = \left[\varepsilon(t)\right] * \vec E(t)\)} \\
       \multicolumn{2}{c}{\(\vec B(t) = \left[\mu(t)\right] * \vec H(t)\)} \\
-    \end{tabular}
-  }
-  \framebreak
-  \hspace{0.10\linewidth}
-  \centering{
-    \small
-    \def\arraystretch{1.8}%
-    \begin{tabular}{ll}
-      \toprule
-      Интегральная форма & Дифференциальная форма \\ \midrule
-      \(Q_e = \displaystyle\oiint_S \vec D \cdot d\vec{s} = \displaystyle\iiint_V \rho_v dv\)
-      & \(\nabla \cdot \vec D = \rho_v\) \\
-      \(\displaystyle\oiint_S \vec B \cdot d\vec{s} = 0\)
-      & \(\nabla \cdot \vec B = 0\) \\
-      \(V_{emf} = \displaystyle\oint_L \vec E \cdot d\vec{l}\) = \(- \displaystyle\iint_S \left[j \omega \vec B\right] \cdot d\vec{s}\)
-      & \(\nabla \times \vec E = - j \omega \vec B\) \\
-      \(I = \displaystyle\oint_L \vec H \cdot d\vec{l} = \displaystyle\iint_S \left[\vec J + j \omega \vec D\right] \cdot d\vec{s}\)
-      & \(\nabla \times \vec H = \vec J + j \omega \vec{D}\) \\
-      \midrule
-      \(\displaystyle\oiint_S \vec J \cdot d\vec{s} = - j \omega Q_e\)
-      & \(\nabla \cdot \vec J = - j \omega \rho_v\) \\
-      \bottomrule
-      \multicolumn{2}{c}{\(\vec D(t) = \left[\varepsilon\right] \vec E(t)\)} \\
-      \multicolumn{2}{c}{\(\vec B(t) = \left[\mu\right] \vec H(t)\)} \\
     \end{tabular}
   }
 \end{frame}
@@ -331,43 +363,3 @@
     \bottomrule
   \end{tabular}
 \end{frame}
-
-\subsection{Разное}
-
-\begin{frame}{Большой многоуровневый список}
-  \begin{itemize}
-    \item \textbf{Пункт 1}
-    \begin{itemize}
-      \itemi Подпункт 1-1
-      \itemi Подпункт 1-2
-    \end{itemize}
-    \item \textbf{Пункт 2}
-    \begin{itemize}
-      \itemi Подпункт 2-1
-    \end{itemize}
-    \item \textbf{Пункт 3}
-    \begin{itemize}
-      \itemi Подпункт 3-1
-      \itemi Подпункт 3-2
-    \end{itemize}
-    \item \textbf{Пункт 4}
-    \begin{itemize}
-      \itemi Подпункт 4-1
-    \end{itemize}
-    \item \textbf{Пункт 5}
-    \begin{itemize}
-      \pro Подпункт 5-1
-      \pro Подпункт 5-2
-      \con Подпункт 5-3
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Четыре изображения}
-  \centering
-  \includegraphics[width=0.25\linewidth,angle=35]{latex}
-  \includegraphics[width=0.25\linewidth,angle=135]{latex}\\
-  \includegraphics[width=0.25\linewidth,angle=15]{latex}
-  \includegraphics[width=0.25\linewidth,angle=-15]{latex}
-\end{frame}
-
