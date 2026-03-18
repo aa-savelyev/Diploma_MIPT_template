@@ -29,6 +29,7 @@
   backend=biber,% движок
   bibencoding=utf8,% кодировка bib файла
   sorting=none,% настройка сортировки списка литературы
+  style=gost-numeric,% стиль цитирования и библиографии (по ГОСТ)
 %  defernumbers=true, % откомментируйте, если требуется правильная нумерация ссылок на литературу в режиме черновика. Замедляет сборку
 ]{biblatex}[2016/09/17]%
 }
@@ -189,8 +190,8 @@
 
 %%% Создание команд для вывода списка литературы %%%
 \newcommand*{\insertbibliofull}{
-  \printbibliography[section=0,title=\bibtitlefull]
+  \printbibliography[keyword=bibliofull,section=0,title=\bibtitlefull]
   \ifnumequal{\value{draft}}{0}{
-    \printbibliography[heading=nobibheading,env=counter,section=0]
+    \printbibliography[heading=nobibheading,env=counter,keyword=bibliofull,section=0]
   }{}
 }
