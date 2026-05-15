@@ -1,27 +1,3 @@
-% для вертикального центрирования ячеек в tabulary
-\def\zz{\ifx\[$\else\aftergroup\zzz\fi}
-%$ \] % <-- чиним подсветку синтаксиса в некоторых редакторах
-\def\zzz{\setbox0\lastbox
-\dimen0\dimexpr\extrarowheight + \ht0-\dp0\relax
-\setbox0\hbox{\raise-.5\dimen0\box0}%
-\ht0=\dimexpr\ht0+\extrarowheight\relax
-\dp0=\dimexpr\dp0+\extrarowheight\relax
-\box0
-}
-
-% Ширина текста минус ширина надписи 999
-\newlength{\twless}
-\newlength{\lmarg}
-\setlength{\lmarg}{\widthof{999}}   % ширина надписи 999
-\setlength{\twless}{\textwidth-\lmarg}
-
-% значок С++ — используйте команду \cpp
-\newcommand{\cpp}{%
-    C\nolinebreak\hspace{-.05em}%
-    \raisebox{.2ex}{+}\nolinebreak\hspace{-.10em}%
-    \raisebox{.2ex}{+}%
-}
-
 %%% Ради примера во второй главе
 \let\originalepsilon\epsilon
 \let\originalphi\phi
