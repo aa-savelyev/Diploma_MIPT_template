@@ -2,23 +2,31 @@
 \thispagestyle{empty}
 \begin{center}
   \small
-  \thesisOrganization \\
-  \thesisDepartment \\
-  \thesisChair
+%  \thesisOrganization \\
+  Федеральное государственное автономное образовательное учреждение\\[-4pt]
+  высшего образования <<Московский физико-технический институт\\[-4pt]
+  (национальный исследовательский университет)>>\\
+  \thesisDepartment\\
+  \thesisChair\\
+  \IfFileExists{images/logos/ALA_logo_black_51.png}{
+    \bigskip
+    \includegraphics[height=1.0cm]{logos/ALA_logo_black_51.png}
+  }{
+    \vspace{1cm}
+  }
 \end{center}
 
-\bigskip
-{
+\begin{flushleft}
   \small
-  \noindent \hspace{-2em}
-  \textbf{Направление подготовки\,/\,специальность:}
-  \thesisSpecialtyNumber~\thesisSpecialtyTitle \par
-  \noindent \hspace{-2em}
+  \hspace*{-1.0cm}
+  \textbf{Направление подготовки:}
+    \thesisSpecialtyNumber~\thesisSpecialtyTitle\\[-4pt]
+  \hspace*{-1.0cm}
   \textbf{Направленность (профиль) подготовки:}
-  \thesisProfile
-}
+    \thesisProfile
+\end{flushleft}
 
-\vspace{0pt plus 6fill}
+\vspace{0pt plus 4fill}
 
 \begin{center}
   \textbf{
@@ -34,7 +42,7 @@
       \thesisAuthor \\[6ex]
 
       \textbf{Научный руководитель:} \\
-      \supervisorFio, \\
+      \supervisorFio, \\[-4pt]
       \supervisorRegaliaShort \\[6ex]
 
       \ifdef{\advisorFio}{
