@@ -183,13 +183,14 @@
 \makeatother
 
 \defbibheading{nobibheading}{} % пустой заголовок, для подсчёта публикаций с помощью невидимой библиографии
+\defbibheading{bibheading}{\noskipnonumchapter{#1}} % заголовок библиогафии в стиле остальных заголовков 
 %\defbibheading{pubgroup}{\section*{#1}} % обычный стиль, заголовок-секция
 %\defbibheading{pubsubgroup}{\noindent\textbf{#1}} % для подразделов "по типу источника"
 
 
 %%% Создание команд для вывода списка литературы %%%
 \newcommand*{\insertbibliofull}{
-  \printbibliography[section=0,title=\bibtitlefull]
+  \printbibliography[heading=bibheading,section=0,title=\bibtitlefull]
   \ifnumequal{\value{draft}}{0}{
     \printbibliography[heading=nobibheading,env=counter,section=0]
   }{}

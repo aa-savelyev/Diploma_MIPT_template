@@ -1,8 +1,8 @@
 %%% Переопределение именований, если иначе не сработает %%%
-%\gappto\captionsrussian{
-%    \renewcommand{\chaptername}{Глава}
-%    \renewcommand{\appendixname}{Приложение} % (ГОСТ Р 7.0.11-2011, 5.7)
-%}
+\gappto\captionsrussian{
+    \renewcommand{\chaptername}{Глава}
+    \renewcommand{\appendixname}{\uppercase{Приложение}} % (ГОСТ Р 7.0.11-2011, 5.7)
+}
 
 %%% Изображения %%%
 \graphicspath{{images/}{Dissertation/images/}}         % Пути к изображениям
@@ -167,6 +167,28 @@
 % \renewcommand*{\insertchapterspace}{}
 % или эту
 % \renewcommand*{\cftbeforechapterskip}{0em}
+
+%%% Команда для создания новой главы без разрыва текущей страницы
+\newcommand{\noskipchapter}[1]{
+  \begingroup
+    \par\vspace{3ex}
+    \let\clearpage\relax
+    \chapter{#1}
+  \endgroup
+}
+
+%%% Команда для создания новой главы без разрыва текущей страницы
+\newcommand{\noskipnonumchapter}[1]{
+  \begingroup
+    \par\vspace{3ex}
+    \let\clearpage\relax
+    \let\bfseries\relax
+    \renewcommand{\hdngalign}{\centering} % по центру
+    \renewcommand{\hdngaligni}{}          % без отступа
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+  \endgroup
+}
 
 %%% Блок дополнительного управления размерами заголовков
 \ifnumequal{\value{headingsize}}{1}{% Пропорциональные заголовки и базовый шрифт 14 пт

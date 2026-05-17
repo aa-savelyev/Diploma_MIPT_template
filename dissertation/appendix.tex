@@ -1,18 +1,23 @@
 %%% Настройки для приложений
 \appendix
 % Оформление заголовков приложений ближе к ГОСТ:
+\renewcommand{\hdngalign}{\centering}   % выравнивание по центру
+\renewcommand{\hdngaligni}{}			% выравнивание по центру
+\setlength{\otstuplen}{0pt}
+\renewcommand*{\chapnumfont}{}
 % Добваить слово 'Приложение' независимо от значения параметра chapstyle
-\renewcommand*{\printchaptername}{\chapnamefont \appendixname}
+\renewcommand*{\printchaptername}{\appendixname}
 % Название приложения с новой строки с отступом \midchapskip
 \setlength{\midchapskip}{6pt}
 \renewcommand*{\afterchapternum}{\par\nobreak\vskip \midchapskip}
 % Нумеровка приложений русскими буквами
-\renewcommand\thechapter{\Asbuk{chapter}}
+\renewcommand{\thechapter}{\Asbuk{chapter}}
 % Не выносим подразделы приложений в оглавление
 \settocdepth{chapter}
 
 
-\chapter{Стандартные префиксы ссылок}\label{app:A}
+%\chapter{Стандартные префиксы ссылок}\label{app:A}
+\noskipchapter{Стандартные префиксы ссылок}\label{app:A}
 
 Общепринятым является следующий формат ссылок: \linebreak
 \texttt{<prefix>:<label>}.
