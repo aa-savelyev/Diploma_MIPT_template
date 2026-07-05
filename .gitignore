@@ -1,7 +1,5 @@
 dissertation.*
 !dissertation.tex
-!dissertation.pdf
 presentation.*
 !presentation.tex
-!presentation.pdf
 *.aux
