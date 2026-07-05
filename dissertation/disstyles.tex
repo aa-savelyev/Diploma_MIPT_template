@@ -81,9 +81,10 @@
 
 %%% Колонтитулы %%%
 % Порядковый номер страницы печатают на середине верхнего поля страницы (ГОСТ Р 7.0.11-2011, 5.3.8)
-\makeevenhead{plain}{}{}{}
+%\makeevenhead{plain}{}{}{}
 \makeoddhead{plain}{}{}{}
-\makeevenfoot{plain}{}{\rmfamily\thepage}{}
+%\makeevenfoot{plain}{}{\rmfamily\thepage}{}
+\setheadfoot{\headheight}{4ex}
 \makeoddfoot{plain}{}{\rmfamily\thepage}{}
 \pagestyle{plain}
 
